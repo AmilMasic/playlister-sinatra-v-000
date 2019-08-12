@@ -13,7 +13,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @song = Song.create(params[:name])
+    @song = Song.create(name: params[:name])
 
     redirect "/owners/#{song.slug}"
   end
