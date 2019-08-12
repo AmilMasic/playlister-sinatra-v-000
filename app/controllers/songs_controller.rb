@@ -1,30 +1,38 @@
 class SongsController < ApplicationController
 
 
+  class SongsController < ApplicationController
+
   get '/songs' do
     @songs = Song.all
-    erb :'songs/index'
+    erb :'/songs/index'
   end
 
   get '/songs/new' do
-      @genres = Genre.all
-      @artists = Artist.all
-      erb :'songs/new'
+    erb :'/songs/new'
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
+    @artist = @song.artist
+
     erb :'songs/show'
   end
 
   post '/songs' do
-   @song = Song.create(:name => params["Name"])
-   @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
-   @song.genre_ids = params[:genres]
-   @song.save
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    if params["Genre Name"] = ""
+      @song.genre_ids = params[:genres]
+    else
+      new_genre = Genre.find_or_create_by(:name => params["Genre Name"])
+      @song.genre_ids = new_genre.id
+    end
+    @song.save
 
-   redirect("/songs/#{@song.slug}")
- end
+
+    redirect("/songs/#{@song.slug}")
+  end
 
 
 
