@@ -2,7 +2,7 @@ require './config/environment'
 
 begin
   fi_check_migration
-  require 'sinatra/flash'
+
   use Rack::MethodOverride
   use ArtistsController
   use GenresController
