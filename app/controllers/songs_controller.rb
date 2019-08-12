@@ -7,7 +7,8 @@ class SongsController < ApplicationController
   end
 
   get 'songs/new' do
-      @song = Song.create(params[:song])
+      @genres = Genre.all
+      @artists = Artist.all
       erb :'songs/new'
   end
 
