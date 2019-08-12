@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_08_09_120157) do
 
   create_table "artists", force: :cascade do |t|
@@ -29,14 +28,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_120157) do
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.integer "artist_id"
-=======
-ActiveRecord::Schema.define(version: 2019_08_09_103929) do
-
-  create_table "songs", force: :cascade do |t|
-    t.string "song_name"
-    t.string "artist_name"
-    t.string "genre_name"
->>>>>>> 13aa1e8fbae138846bfd7b6ecd3a230ebb338de5
   end
 
 end
