@@ -1,4 +1,5 @@
 class Genre < ActiveRecord::Base
+<<<<<<< HEAD
   has_many :song_genres
   has_many :songs, through: :song_genres
   has_many :artists, through: :songs
@@ -10,4 +11,8 @@ class Genre < ActiveRecord::Base
  def self.find_by_slug(slug)
    Genre.all.find{|genre| genre.slug == slug}
  end
+=======
+  has_many :songs
+  has_many :artists, through: :songs
+>>>>>>> 13aa1e8fbae138846bfd7b6ecd3a230ebb338de5
 end
